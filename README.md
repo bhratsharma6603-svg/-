@@ -13,17 +13,19 @@
     --muted:#6b6b6b;
 }
 *{box-sizing:border-box;}
-body{
+html, body{
     margin:0;
-    min-height:100vh;
+    padding:0;
+    height:100%;
     font-family:"Poppins",sans-serif;
     background: linear-gradient(135deg,var(--bg1) 0%, var(--bg2) 100%);
+    overflow-y:auto;
+}
+body{
     display:flex;
-    align-items:center;
     justify-content:center;
     padding:20px;
     color:#222;
-    overflow:hidden;
 }
 .stage{
     width:100%;
@@ -33,8 +35,11 @@ body{
     padding:26px;
     box-shadow: 0 18px 40px rgba(12,18,35,0.12);
     position:relative;
-    overflow:visible;
     text-align:center;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
 .hearts{
     pointer-events:none;
@@ -67,12 +72,13 @@ p.lead{color:var(--muted); margin:0 0 14px 0; z-index:2; position:relative}
     margin-top:22px;
     z-index:2;
     position:relative;
+    width:100%;
 }
 #letter{
     background:rgba(255,255,255,0.92);
     border-radius:12px;
     padding:20px;
-    max-height:58vh;
+    max-height:60vh;
     overflow:auto;
     text-align:left;
     font-family:'Great Vibes', cursive;
@@ -152,7 +158,6 @@ p.lead{color:var(--muted); margin:0 0 14px 0; z-index:2; position:relative}
 <div class="stage" id="stage">
     <div class="hearts" id="hearts"></div>
     <div id="kittyWrap">
-      <!-- Updated with your GIF -->
       <img id="kitty" src="https://www.dropbox.com/scl/fi/odhoi925s552dm3tzdaur/d4e920e6b0da6b5fb8e947e458e876cc.gif?rlkey=v0vepe0ckgh76hwoa9lxjcpim&st=svyu9crh&dl=1" alt="Love Sticker">
       <h1>💖 My Love Letter to You 💖</h1>
       <p class="lead">A small surprise for Anushka — made with all my heart</p>
@@ -174,6 +179,7 @@ p.lead{color:var(--muted); margin:0 0 14px 0; z-index:2; position:relative}
 </audio>
 
 <script>
+// Same JavaScript as before (no change needed)
 const HEART_FREQ = 700;
 const HEART_COLORS = ['#ff9ccf','#ff6ea8','#ff3b7d','#ffd1e6','#ffb3c6'];
 const startBtn = document.getElementById('startBtn');
